@@ -1,0 +1,182 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+body{
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	background-color: skyblue;
+}
+h1{
+	text-align: center;
+    color: green;
+    padding: 20px;
+    font-style: italic;
+}
+.vid{
+	text-align: center;
+	padding-top: 20px;
+}
+nav{
+	background-color: black;
+	display: grid;
+	place-items: center;
+
+}
+nav ul{
+	list-style-type: none;
+
+}
+nav ul a{
+	display: inline-block;
+	padding: 20px;
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	transition: 0.5s ease-in;
+}
+nav ul a:hover{
+	background-color: skyblue;
+	color: white;
+
+}
+nav ul a li{
+	color: white;
+}
+h3{
+	text-align: center;
+    color: red;
+    padding: 10px;
+    font-size: 40px;
+    font-style: italic;
+}
+h4{
+	text-align: center;
+	font-size: 15px;
+	color: blue;
+}
+p{
+	color: yellow;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #287Ec7;
+}
+h2{
+	color: snow;
+	padding: 10px;
+}
+p:hover{
+	opacity: 3;
+	transform: scale(1.03);
+}
+h2:hover{
+	opacity: 1;
+	transform: scale(1.5);
+}
+button{
+	padding: 10px;
+	position: relative;
+	bottom: -460px;
+    border: none;
+    outline: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 15px;
+    display: block;
+    margin: 0 auto;
+    transition: 0.2s all;
+    align-items: center;
+}
+button:hover{
+	transform: scale(1.05);
+}
+.container{
+	position: relative;
+	display: grid;
+	padding: 50px 40px;
+	margin: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 70px;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	grid-template-columns: repeat(4, 1fr);
+}
+.container .hexagon{
+	position: relative;
+	width: 350px;
+	height: 350px;
+	margin-bottom: 50%;
+}
+.container .hexagon::before{
+	content: '';
+	position: absolute;
+	bottom: -70px;
+	width: 100%;
+	height: 60px;
+	background: radial-gradient(rgba(0, 0, 0, 1),transparent,transparent);
+	border-radius: 50%;
+	transition: 0.5s;
+}
+.container .hexagon:hover::before{
+	opacity: 0.8;
+	transform: scale(0.8);
+}
+.container .hexagon .shape{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);	transition: 0.5s;
+}
+.container .hexagon:hover .shape{
+	transform: translateY(-30px);
+}
+.container .hexagon .shape img{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: 0.2s ease;
+	cursor: pointer;
+}
+.container .hexagon .shape img:hover{
+	transform: scale(1.05);
+}
+.container .hexagon .shape .content{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	text-align: center;
+	background: linear-gradient(45deg,#03a9f4,#rgba(3, 169, 244, 0.5));
+	color: #fff;
+	opacity: 0;
+	transition: 0.5s;
+}
+.container .hexagon:hover .shape .content{
+	opacity: 1;
+}
+@media screen and (max-width: 1000px){
+    .container .hexagon .shape .content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 700px){
+    .container .hexagon .shape .content{
+        grid-template-columns: repeat(1, 1fr);
+    }
